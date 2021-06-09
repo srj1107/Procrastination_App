@@ -1,0 +1,3 @@
+// export const FETCH_ANSWERS = 'FETCH_ANSWERS';
+export const ADD_ANSWERS ='ADD_ANSWERS';
+export const DELETE_ANSWERS = 'DELETE_ANSWERS';

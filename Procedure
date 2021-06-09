@@ -1,0 +1,32 @@
+Aim: PROCRASTINATION APP
+
+Bottom Status Bar
+
+Screens ->
+    Home Screen 
+    Result Screen
+    Entries Screen 
+    Setting
+
+Home Screen
+ Header - Normal Text
+    6-cards-> COMPONENTS - card 
+
+Results Screen 
+    2-cards->
+        Pie chart + Legends
+        Bar Graph + Labels
+
+Entries Screen
+    Log of all previous Entries
+
+Settings Screen
+    Save
+    Slider
+    Push Notifications
+    Day
+    Time/Frequency
+    Contact Developer (May reply to messages)
+    *Login/Logout
+
+    
