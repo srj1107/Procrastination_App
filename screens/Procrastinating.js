@@ -6,6 +6,7 @@ import { reasons } from "../constants/Constants";
 // import addAnswers from '../store/actions/Actions';
 import { connect } from "react-redux";
 import { ADD_ANSWERS } from "../store/actions/Types";
+import moment from "moment/src/moment";
 
 const Procrastinate = (props) => {
   return (
@@ -15,14 +16,26 @@ const Procrastinate = (props) => {
         <View style={styles.rowPanel}>
           <TouchableOpacity
             onPress={() => {
-              props.onAnswerAdded(reasons[0]);
+              let newObj = {
+                id: moment()
+                  .utcOffset("+05:30")
+                  .format("ddd D MMM, hh:mm:ss A"),
+                reason: reasons[0],
+              };
+              props.onAnswerAdded(newObj);
             }}
           >
             <Panel title={reasons[0]} emoji="😰" />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              props.onAnswerAdded(reasons[1]);
+              let newObj = {
+                id: moment()
+                  .utcOffset("+05:30")
+                  .format("ddd D MMM, hh:mm:ss A"),
+                reason: reasons[1],
+              };
+              props.onAnswerAdded(newObj);
             }}
           >
             <Panel title={reasons[1]} emoji="😉" />
@@ -32,14 +45,26 @@ const Procrastinate = (props) => {
         <View style={styles.rowPanel}>
           <TouchableOpacity
             onPress={() => {
-              props.onAnswerAdded(reasons[2]);
+              let newObj = {
+                id: moment()
+                  .utcOffset("+05:30")
+                  .format("ddd D MMM, hh:mm:ss A"),
+                reason: reasons[2],
+              };
+              props.onAnswerAdded(newObj);
             }}
           >
             <Panel title={reasons[2]} emoji="😞" />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              props.onAnswerAdded(reasons[3]);
+              let newObj = {
+                id: moment()
+                  .utcOffset("+05:30")
+                  .format("ddd D MMM, hh:mm:ss A"),
+                reason: reasons[3],
+              };
+              props.onAnswerAdded(newObj);
             }}
           >
             <Panel title={reasons[3]} emoji="🥵" />
@@ -49,14 +74,26 @@ const Procrastinate = (props) => {
         <View style={styles.rowPanel}>
           <TouchableOpacity
             onPress={() => {
-              props.onAnswerAdded(reasons[4]);
+              let newObj = {
+                id: moment()
+                  .utcOffset("+05:30")
+                  .format("ddd D MMM, hh:mm:ss A"),
+                reason: reasons[4],
+              };
+              props.onAnswerAdded(newObj);
             }}
           >
             <Panel title={reasons[4]} emoji="💬" />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              props.onAnswerAdded(reasons[5]);
+              let newObj = {
+                id: moment()
+                  .utcOffset("+05:30")
+                  .format("ddd D MMM, hh:mm:ss A"),
+                reason: reasons[5],
+              };
+              props.onAnswerAdded(newObj);
             }}
           >
             <Panel title={reasons[5]} emoji="😎" />

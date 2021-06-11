@@ -1,12 +1,21 @@
 import React from "react";
-import { FlatList, ScrollView, StyleSheet, View, Text } from "react-native";
+import {
+  FlatList,
+  ScrollView,
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import Header from "../components/Header.js";
 import { useSelector } from "react-redux";
 import { Ionicons } from "@expo/vector-icons";
 import { colors } from "../constants/Constants";
-// import { moment } from "moment";
+import moment from "moment/src/moment";
+import { DELETE_ANSWERS } from "../store/actions/Types.js";
+import { connect } from "react-redux";
 
-export default function Entries() {
+const Entries = (props) => {
   const availableReasons = useSelector((state) => state.reasons.answers);
 
   return (
@@ -25,30 +34,39 @@ export default function Entries() {
             style={styles.answerContainer}
             data={availableReasons}
             renderItem={({ item }) => (
-              <View>
-                <View style={styles.itemContainer}>
-                  <View>
-                    {item === "NOT PROCRASTINATING" ? (
-                      <Ionicons
-                        name="checkmark-circle-outline"
-                        color={colors.success}
-                        size={20}
-                      />
-                    ) : (
-                      <Ionicons
-                        name="close-circle-outline"
-                        color={colors.danger}
-                        size={20}
-                      />
-                    )}
+              <View style={{ flexDirection: "row" }}>
+                <TouchableOpacity
+                  style={{ flexDirection: "row" }}
+                  onPress={() => {
+                    props.onAnswerRemoved(item);
+                  }}
+                >
+                  <View style={styles.itemContainer}>
+                    <View>
+                      {item === "NOT PROCRASTINATING" ? (
+                        <Ionicons
+                          name="checkmark-circle-outline"
+                          color={colors.success}
+                          size={20}
+                        />
+                      ) : (
+                        <Ionicons
+                          name="close-circle-outline"
+                          color={colors.danger}
+                          size={20}
+                        />
+                      )}
+                    </View>
                   </View>
-                </View>
-                <View style={styles.textContainer}>
-                  <Text style={styles.reason}>{item}</Text>
-                  {/* <Text>
-                    {moment(item.createdAt).format("ddd D MMM, hh:mm A")}
-                  </Text> */}
-                </View>
+                  <View style={styles.textContainer}>
+                    <Text style={styles.reason}>{item}</Text>
+                    <Text>
+                      {moment()
+                        .utcOffset("+05:30")
+                        .format("ddd D MMM, hh:mm:ss A")}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
               </View>
             )}
           ></FlatList>
@@ -66,7 +84,7 @@ export default function Entries() {
       )}
     </>
   );
-}
+};
 
 const styles = StyleSheet.create({
   answerContainer: {
@@ -74,7 +92,7 @@ const styles = StyleSheet.create({
     marginVertical: 12,
   },
   textContainer: {
-    marginLeft: 10,
+    marginVertical: 2,
   },
   reason: {
     fontSize: 18,
@@ -88,3 +106,15 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
 });
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAnswerRemoved: (reason) =>
+      dispatch({
+        type: DELETE_ANSWERS,
+        payload: reason,
+      }),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Entries);
