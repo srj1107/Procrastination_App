@@ -122,10 +122,10 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAnswerAdded: (reason) =>
+    onAnswerAdded: (item) =>
       dispatch({
         type: ADD_ANSWERS,
-        payload: reason,
+        payload: item,
       }),
   };
 };

@@ -1,17 +1,29 @@
 import * as actionTypes from "../actions/Types";
 
 const initialState = {
-  answers: [],
+  answers:[],  
+  counter: {
+    'FEAR OF FAILURE':0,
+    'TOO DISTRACTED':0,
+    'LACK OF MOTIVATION':0,
+    'OVERWHELMED':0,
+    'SOMETHING ELSE':0,
+    'NOT PROCRASTINATING':0
+  },
 };
 
 const reasonsReducer = (state = initialState, action) => {
-  // console.log(action.type, actionTypes.ADD_ANSWERS);
   switch (action.type) {
     case actionTypes.ADD_ANSWERS:
-      console.log(action.payload.id);
+      console.log(state.answers);
+      console.log(state.counter);
       return {
         ...state,
-        answers: [action.payload.reason, ...state.answers],
+        counter:{
+          ...state.counter,
+          [action.payload.reason]: state.counter[action.payload.reason]+1
+        },
+        answers: [action.payload, ...state.answers],        
       };
     case actionTypes.DELETE_ANSWERS:
       return {
@@ -19,6 +31,10 @@ const reasonsReducer = (state = initialState, action) => {
         answers: state.answers.filter((answer) => {
           return answer !== action.payload;
         }),
+        counter:{
+          ...state.counter,
+          [action.payload.reason]: state.counter[action.payload.reason]-1
+        },
       };
     default:
       return state;

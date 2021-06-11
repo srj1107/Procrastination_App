@@ -11,17 +11,17 @@ import Header from "../components/Header.js";
 import { useSelector } from "react-redux";
 import { Ionicons } from "@expo/vector-icons";
 import { colors } from "../constants/Constants";
-import moment from "moment/src/moment";
 import { DELETE_ANSWERS } from "../store/actions/Types.js";
 import { connect } from "react-redux";
 
 const Entries = (props) => {
   const availableReasons = useSelector((state) => state.reasons.answers);
-
+  //const availableKeys = useSelector((state) => state.reasons.keys);
+  console.log("Hi", availableReasons);
   return (
     <>
       <Header title="Entries" subtitle="Tap to delete" />
-      {availableReasons && availableReasons.length > 0 ? (
+      {availableReasons.length > 0 ? (
         <ScrollView
           style={{ flex: 1 }}
           showsVerticalScrollIndicator={false}
@@ -43,7 +43,7 @@ const Entries = (props) => {
                 >
                   <View style={styles.itemContainer}>
                     <View>
-                      {item === "NOT PROCRASTINATING" ? (
+                      {item.reason === "NOT PROCRASTINATING" ? (
                         <Ionicons
                           name="checkmark-circle-outline"
                           color={colors.success}
@@ -59,12 +59,8 @@ const Entries = (props) => {
                     </View>
                   </View>
                   <View style={styles.textContainer}>
-                    <Text style={styles.reason}>{item}</Text>
-                    <Text>
-                      {moment()
-                        .utcOffset("+05:30")
-                        .format("ddd D MMM, hh:mm:ss A")}
-                    </Text>
+                    <Text style={styles.reason}>{item.reason}</Text>
+                    <Text>{item.id}</Text>
                   </View>
                 </TouchableOpacity>
               </View>

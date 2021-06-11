@@ -1,26 +1,36 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import Header from '../components/Header';
-//import { BarChart, PieChart } from 'react-native-chart-kit';(graph to be added later)
+import React from "react";
+import { View, Text, StyleSheet, FlatList, ScrollView } from "react-native";
+import Header from "../components/Header";
+import { useSelector } from "react-redux";
+//import { BarChart, PieChart } from "react-native-chart-kit";
 
-export default function Results () {
-    return(
-        <View>
-          <Header 
-            title = "Results"         
-          />
-          <Text style = {StyleSheet.textContainer}>
-            "Procrastinating: "
-          </Text>
-        </View>
-    )
+export default function Results() {
+  const availableCounters = useSelector((state) => state.reasons.counter);
+  console.log("Hi", availableCounters);
+  return (
+    <View>
+      <Header title="Results" />
+      <ScrollView>
+        <FlatList
+          // style = {styles.counterContainer}
+          data={availableCounters}
+          renderItem={({ item }) => (
+            <View>
+              <Text>{item}</Text>
+            </View>
+          )}
+        ></FlatList>
+      </ScrollView>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+
+    justifyContent: "center",
   },
 });

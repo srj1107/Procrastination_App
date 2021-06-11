@@ -5,6 +5,7 @@ import { Icon } from "react-native-elements";
 import Entries from "../screens/Entries";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import Results from "../screens/Results";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -34,7 +35,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Results"
-        component={Procrastinate}
+        component={Results}
         options={{
           tabBarLabel: "Results",
           tabBarIcon: ({ color }) => (
