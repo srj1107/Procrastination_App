@@ -43,17 +43,17 @@ const Entries = (props) => {
                 >
                   <View style={styles.itemContainer}>
                     <View>
-                      {item.reason === "NOT PROCRASTINATING" ? (
+                      {item.reason === "PROACTIVE" ? (
                         <Ionicons
                           name="checkmark-circle-outline"
                           color={colors.success}
-                          size={20}
+                          size={22}
                         />
                       ) : (
                         <Ionicons
                           name="close-circle-outline"
                           color={colors.danger}
-                          size={20}
+                          size={22}
                         />
                       )}
                     </View>

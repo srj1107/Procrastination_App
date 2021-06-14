@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
     marginRight: 1,
   },
   bigView: {
+    marginTop: 15,
     justifyContent: "center",
     alignItems: "center",
     justifyContent: "space-around",

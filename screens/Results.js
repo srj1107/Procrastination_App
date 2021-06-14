@@ -18,42 +18,20 @@ export default function Results() {
   return (
     <View>
       <Header title="Results" />
-
-      {/* <ScrollView
-        style={{ flex: 1 }}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      > */}
-      {/* <SafeAreaView style={{ flex: 1 }}>
-        <FlatList
-          // style = {styles.counterContainer}
-          data={availableCounters}
-          renderItem={({ item }) => (
-            <View>
-              <Text>{item}</Text>
-              <Text>{"Sample TExt"}</Text>
-            </View>
-          )}
-        >
-          <Text>Kautilya</Text>
-        </FlatList>
-      </SafeAreaView> */}
-      {/* </ScrollView> */}
       <Text>FEAR OF FAILURE</Text>
       <Text>{availableCounters["FEAR OF FAILURE"]}</Text>
+      <Text>TOO DISTRACTED</Text>
+      <Text>{availableCounters["TOO DISTRACTED"]}</Text>
       <Text>LACK OF MOTIVATION</Text>
       <Text>{availableCounters["LACK OF MOTIVATION"]}</Text>
+      <Text>OVERWHELMED</Text>
+      <Text>{availableCounters["OVERWHELMED"]}</Text>
+      <Text>SOMETHING ELSE</Text>
+      <Text>{availableCounters["SOMETHING ELSE"]}</Text>
+      <Text>PROACTIVE</Text>
+      <Text>{availableCounters["PROACTIVE"]}</Text>
     </View>
   );
-  // return (
-  //   <View>
-  //     <Header title="Results" />
-
-  //   </View>
-  // );
 }
 
 const styles = StyleSheet.create({
@@ -64,7 +42,4 @@ const styles = StyleSheet.create({
 
     justifyContent: "center",
   },
-  // counterContainer:{
-
-  // },
 });

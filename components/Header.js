@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   textContainer: {
-    fontSize: 32,
+    fontSize: 30,
     //fontFamily: 'GoodFeelingSans',
     fontWeight: "bold",
     justifyContent: "center",
