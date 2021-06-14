@@ -88,11 +88,12 @@ const styles = StyleSheet.create({
     marginVertical: 12,
   },
   textContainer: {
-    marginVertical: 2,
+    marginVertical: 3.5,
   },
   reason: {
     fontSize: 18,
     color: colors.dark,
+    fontWeight: "bold",
   },
   itemContainer: {
     paddingVertical: 8,
