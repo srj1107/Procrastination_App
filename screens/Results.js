@@ -44,6 +44,13 @@ const Results = () => {
       legendFontColor: "black",
       legendFontSize: 10,
     },
+    {
+      name: "PROACTIVE",
+      count: availableCounters["PROACTIVE"],
+      color: "#a6a6a6",
+      legendFontColor: "black",
+      legendFontSize: 10,
+    },
   ];
 
   if (
@@ -51,7 +58,8 @@ const Results = () => {
     availableCounters["TOO DISTRACTED"] === 0 &&
     availableCounters["LACK OF MOTIVATION"] === 0 &&
     availableCounters["OVERWHELMED"] === 0 &&
-    availableCounters["SOMETHING ELSE"] === 0
+    availableCounters["SOMETHING ELSE"] === 0 &&
+    availableCounters["PROACTIVE"] === 0
   ) {
     return (
       <>
@@ -87,7 +95,7 @@ const Results = () => {
         <PieChart
           data={display}
           width={screenWidth}
-          height={200}
+          height={260}
           chartConfig={{
             backgroundColor: "#26872a",
             backgroundGradientFrom: "#43a047",
@@ -98,7 +106,7 @@ const Results = () => {
             },
           }}
           accessor="count"
-          center={[Dimensions.get("window").width / 15, 0]}
+          center={[Dimensions.get("window").width / 17, 5]}
         />
       </View>
     );

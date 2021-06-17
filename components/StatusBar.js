@@ -1,7 +1,6 @@
 import React from "react";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import Procrastinate from "../screens/Procrastinating";
-import { Icon } from "react-native-elements";
 import Entries from "../screens/Entries";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
@@ -9,7 +8,6 @@ import Results from "../screens/Results";
 import Settings from "../screens/Settings";
 
 const Tab = createMaterialBottomTabNavigator();
-
 //Bottom Navigator for accessing various screens
 
 function MyTabs() {
@@ -55,12 +53,16 @@ function MyTabs() {
         }}
       />
       <Tab.Screen
-        name="Settings"
+        name="About"
         component={Settings}
         options={{
-          tabBarLabel: "Settings",
+          tabBarLabel: "About",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="settings-outline" size={26} color="black" />
+            <Ionicons
+              name="information-circle-outline"
+              size={26}
+              color="black"
+            />
           ),
         }}
       />

@@ -8,25 +8,31 @@ import {
   TouchableOpacity,
   Linking,
   SafeAreaView,
+  Image,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Header from "../components/Header.js";
 
 export default function Settings() {
+  const imageUri = "https://picsum.photos/600/600";
   return (
     <SafeAreaView>
-      <Header title="Settings" />
-      <View>
-        <Text>How often should I ask if you are procrastinating?</Text>
+      <Header title="About" />
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
+        <Text style={styles.textContainer}>
+          How satisfied are you with your progress?
+        </Text>
         <View style={styles.feedbackContainer}>
           <TouchableOpacity
             style={styles.buttonContainer}
             onPress={() => {
-              console.log("Good");
+              console.log("Excellent");
             }}
           >
             <View style={styles.row}>
-              <Text>Good</Text>
+              <Text style={{ fontWeight: "bold", fontSize: 14 }}>
+                Excellent
+              </Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
@@ -36,7 +42,9 @@ export default function Settings() {
             }}
           >
             <View style={styles.row}>
-              <Text>Satisfactory</Text>
+              <Text style={{ fontWeight: "bold", fontSize: 14 }}>
+                Satisfactory
+              </Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
@@ -46,17 +54,25 @@ export default function Settings() {
             }}
           >
             <View style={styles.row}>
-              <Text>Poor</Text>
+              <Text style={{ fontWeight: "bold", fontSize: 14 }}>Poor</Text>
             </View>
           </TouchableOpacity>
         </View>
       </View>
+      <View style={{ alignItems: "center", marginVertical: 8 }}>
+        <Image source={{ uri: imageUri }} style={styles.image}></Image>
+      </View>
       <View style={styles.contactContainer}>
         <TouchableOpacity
-          onPress={() => Linking.openURL("mailto:srj11052001@gmail.com")}
+          style={{ borderRadius: 15 }}
+          onPress={() =>
+            Linking.openURL("https://github.com/srj1107/Procrastination_App")
+          }
         >
           <View style={styles.row}>
-            <Text>Contact developer (I reply to all messages)</Text>
+            <Text style={{ fontWeight: "bold", fontSize: 15 }}>
+              Source Code
+            </Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -70,22 +86,45 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
   },
+  image: {
+    width: "80%",
+    height: 300,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 10,
+  },
   row: {
     paddingHorizontal: 20,
     paddingVertical: 20,
-    flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: "column-reverse",
+    justifyContent: "space-around",
   },
   contactContainer: {
-    backgroundColor: "#1f8eff",
+    backgroundColor: "gray",
+    flexDirection: "column-reverse",
+    justifyContent: "flex-end",
+    marginVertical: 3,
   },
   feedbackContainer: {
-    flexDirection: "row",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-around",
   },
   buttonContainer: {
     backgroundColor: "#1f8eff",
+    alignItems: "center",
+    flexDirection: "column",
+    marginVertical: 7,
+    width: 220,
+    borderRadius: 15,
+    elevation: 12,
+  },
+  textContainer: {
+    marginVertical: 2,
+    alignItems: "center",
+    fontWeight: "bold",
+    fontSize: 16,
+    marginVertical: 10,
   },
 });
