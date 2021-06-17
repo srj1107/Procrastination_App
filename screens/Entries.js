@@ -17,7 +17,7 @@ import { connect } from "react-redux";
 const Entries = (props) => {
   const availableReasons = useSelector((state) => state.reasons.answers);
   //const availableKeys = useSelector((state) => state.reasons.keys);
-  console.log("Hi", availableReasons);
+  //console.log("Hi", availableReasons);
   return (
     <>
       <Header title="Entries" subtitle="Tap to delete" />
@@ -75,7 +75,9 @@ const Entries = (props) => {
             alignItems: "center",
           }}
         >
-          <Text style={{ fontSize: 18 }}>Nothing to show here</Text>
+          <Text style={{ fontSize: 20, color: "gray" }}>
+            Nothing to show here
+          </Text>
         </View>
       )}
     </>

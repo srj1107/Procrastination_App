@@ -1,8 +1,8 @@
-import * as actionTypes from './Types';
+import * as actionTypes from "./Types";
 
 export const addAnswers = (reason) => {
-    return{
-        type: actionTypes.ADD_ANSWERS,
-        payload: reason
-    };
+  return {
+    type: actionTypes.ADD_ANSWERS,
+    payload: reason,
+  };
 };

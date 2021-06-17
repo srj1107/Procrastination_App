@@ -6,6 +6,7 @@ import Entries from "../screens/Entries";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import Results from "../screens/Results";
+import Settings from "../screens/Settings";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -55,7 +56,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Settings"
-        component={Procrastinate}
+        component={Settings}
         options={{
           tabBarLabel: "Settings",
           tabBarIcon: ({ color }) => (
